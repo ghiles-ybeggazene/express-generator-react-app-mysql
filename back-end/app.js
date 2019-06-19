@@ -13,24 +13,6 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 
-
-const SELECT_ALL_USER_QUERY = 'SELECT * FROM usuarios';
-
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'mydb'
-})
-
-connection.connect(err => {
-    if(err) {
-        return err;
-    }
-})
-
-
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -50,15 +32,6 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
-
-
-
-
-
-
-
-
 
 
 // error handler
