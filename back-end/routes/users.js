@@ -2,8 +2,20 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
+const SELECT_ALL_USER_QUERY = 'SELECT * FROM usuarios';
 
-const SELECT_ALL_USER_QUERY = 'SELECT * FROM usuarios'
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'mydb'
+})
+
+connection.connect(err => {
+    if(err) {
+        return err;
+    }
+})
 
 
 
